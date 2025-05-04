@@ -14,6 +14,7 @@ export default defineConfig({
   integrations: [react(), mdx(), compressor({gzip: true})],
 
   markdown: {
+    gfm: false,
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
       // https://shiki.style/themes
