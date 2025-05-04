@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon";
+import RifqoiIcon from "../icons/rifqoi-logo.svg";
+
+import MarcoPicture from "../images/marco.jpeg";
+const svgClass = "stroke-white fill-white md:h-10 h-8";
+---
+
+<script>
+  var wrapper = document.querySelector(".wrapper svg");
+  function draw() {
+    console.log("masuk");
+    console.log(wrapper?.classList);
+    wrapper?.classList.add("active");
+  }
+
+  function erase() {
+    wrapper?.classList.remove("active");
+  }
+
+  // setInterval(erase, 5000);
+  // setInterval(draw, 1000);
+</script>
+
+<Layout title="Rifqi Al Furqon | Software Engineer">
+  <!-- <main
+    class="flex items-center justify-center min-h-screen mx-auto max-w-[600px] md:p-4 md:pt-4 pt-10 p-8 text-gray-400"
+  > -->
+  <!-- <div class="max-w-3xl max-h-full"> -->
+  <!-- <section class="flex justify-center mt-10 mb-4 ease-in-out">
+      <div
+        class="relative w-32 h-32 overflow-hidden rounded-full"
+        transition:animate="fade"
+      >
+        <Image
+          src={MarcoPicture}
+          alt="Marco Picture"
+          class="h-32 w-32 rounded-full hover:scale-105"
+        />
+      </div>
+    </section> -->
+  <!-- 
+    <div class="mt-5 py-4" transition:animate="initial">
+      <h2 class="text-4xl text-gray-50">Muhammad Rifqi Al Furqon</h2>
+    </div> -->
+
+  <div
+    class="text-gray-300 text-md leading-loose font-sans flex-col gap-7 flex"
+  >
+    <div>
+      Linux whisperer, YAML wrangler, and the person your servers call at 2 AM
+      (but hopefully won't need to). Turning "It works on my machine" into "It
+      works everywhere".
+    </div>
+    <div>
+      I'm a software engineer focusing on site reliability engineering.
+      Currently a <a
+        href="https://sre.google/"
+        target="_blank"
+        class="border-b-2 font-bold pb-1 border-gray-500 hover:border-white transition ease-in-out duration-700 relative cursor-pointer text-white"
+        >Site Reliability Engineer</a
+      > at
+      <div class="inline-flex">
+        <a
+          href="https://doku.com"
+          class="border-b-2 border-gray-500 hover:border-white transition ease-in-out duration-700 relative"
+          target="_blank"
+        >
+          <span class="absolute top-[5px] md:top-[3px]">
+            <Icon
+              name="doku-logo"
+              class="w-4 h-5 m-0 stroke-white fill-white"
+            />
+          </span>
+          <span class="ml-5 font-bold text-white">DOKU</span>.
+        </a>
+      </div>
+       I'm really into all things cloud and observability. I’ve picked up a few
+      certs along the way and lately, I’ve been diving deep into cloud-native
+      tech—especially
+      <div class="inline-flex">
+        <a
+          href="https://kubernetes.io/"
+          class="border-b-2 border-gray-500 hover:border-white transition ease-in-out duration-700 relative"
+          target="_blank"
+        >
+          <span class="absolute top-[5px] md:top-[3px]">
+            <Icon name="kubernetes" class="w-4 h-5 m-0 fill-white" />
+          </span>
+          <span class="ml-5 font-bold text-white">Kubernetes</span>
+        </a>.
+      </div>
+    </div>
+    <!-- <div class="py-4" transition:animate="fade">
+          I can't stand doing the same task over and over, so finding ways to
+          automate them really excites me. But the funny thing is, sometimes I
+          end up spending even more time trying to set up the automation.
+          Currently learning
+          <div class="inline-flex">
+            <a
+              href="https://nixos.org/"
+              class="border-b-2 border-gray-500 hover:border-white transition ease-in-out duration-700 relative"
+              target="_blank"
+            >
+              <span class="absolute top-[6px]">
+                <Icon name="nixos" class="w-4 h-5 m-0 fill-white" />
+              </span>
+              <span class="ml-5 font-bold text-white">Nix</span>
+            </a>
+          </div> to ultimately automate all of my workflow.
+        </div> -->
+    <div>
+      I love automating stuff (seriously, everything) and I’m currently
+      exploring
+      <div class="inline-flex">
+        <a
+          href="https://nixos.org/"
+          class="border-b-2 border-gray-500 hover:border-white transition ease-in-out duration-700 relative"
+          target="_blank"
+        >
+          <span class="absolute top-[6px]">
+            <Icon name="nixos" class="w-4 h-5 m-0 fill-white" />
+          </span>
+          <span class="ml-5 font-bold text-white">Nix</span>
+        </a>
+      </div> to streamline and manage my workflows more efficiently. Always
+      learning, always tinkering.
+    </div>
+    <!-- <div class="py-4">
+          I'm genuinely curious about everything in the tech space.
+          <br />
+           My learning journey has covered a broad range of disciplines,
+          including Cloud, Web Development, and Machine Learning.
+          <br />
+           Lately, I've been heavily invested in Cloud technologies and have
+          earned several certificates in this field. I'm particularly interested
+          on diving deeper into Cloud Native technologies especially
+          <div class="inline-flex">
+            <a
+              href="https://nixos.org/"
+              class="border-b-2 border-gray-500 hover:border-white transition ease-in-out duration-700 relative"
+              target="_blank"
+            >
+              <span class="absolute top-[5px] md:top-[3px]">
+                <Icon name="kubernetes" class="w-4 h-5 m-0 fill-white" />
+              </span>
+              <span class="ml-5 font-bold text-white">Kubernetes</span>
+            </a>.
+          </div>
+        </div> -->
+  </div>
+
+  <!-- </div> -->
+  <!-- </main> -->
+</Layout>

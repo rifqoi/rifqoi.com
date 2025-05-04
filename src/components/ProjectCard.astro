@@ -1,0 +1,27 @@
+---
+import Icon from "astro-icon";
+
+type Props = {
+  name: string;
+  description: string;
+  link?: string;
+};
+const { name, description, link } = Astro.props;
+---
+
+<div>
+  <div class="text-white text-xl font-bold mb-2">
+    {name}
+  </div>
+  <div class="mb-3 text-md">
+    {description}
+  </div>
+  {
+    link && (
+      <a class="flex items-center text-md" target="_blank" href={link}>
+        <Icon name="link-icon" class="w-4 h-4 fill-white mr-2" />
+        <span>{link}</span>
+      </a>
+    )
+  }
+</div>

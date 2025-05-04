@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+const allPosts = await getCollection("blog");
+
+// const allPosts = Object.values(
+//   import.meta.glob("./posts/*.md", { eager: true })
+// );
+
+const descendingPosts = allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate);
+  const dateB = new Date(b.data.pubDate);
+
+  return dateA.getTime() + dateB.getTime();
+});
+
+function truncate(str: string, n: number) {
+  return str.length > n ? str.substring(0, n - 1) + "..." : str;
+}
+
+function normalizeDate(date: string) {
+  return date.split("T")[0];
+}
+
+console.log(descendingPosts);
+
+const pageTitle = "Posts - rifqoi.com";
+---
+
+<Layout title={pageTitle}>
+  <h1 class="text-3xl text-white font-bold mb-4">Posts</h1>
+
+  {
+    descendingPosts.length > 0 ? (
+      descendingPosts.map((post) => (
+        <a href={`/posts/${post.slug}`} class="flex my-4">
+          <div
+            class="shrink-0 basis-28 text-gray-500"
+            transition:name={`published_date_${post.slug}`}
+          >
+            {normalizeDate(post.data.pubDate.toISOString())}
+          </div>
+          <div transition:name={`title_${post.slug}`} transition:persist>
+            {post.data.title}
+          </div>
+        </a>
+      ))
+    ) : (
+      <div class="flex items-center justify-center"> Coming Soon...</div>
+    )
+  }
+</Layout>

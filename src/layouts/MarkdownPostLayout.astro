@@ -1,0 +1,45 @@
+---
+import "@fontsource-variable/nunito";
+import "@fontsource/ibm-plex-mono";
+
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+
+function normalizeDate(date: string) {
+  return date.split("T")[0];
+}
+
+const currentPath = Astro.url.pathname;
+
+type Props = {
+  id: string;
+  data: CollectionEntry<"blog">["data"];
+};
+
+const { id, data } = Astro.props;
+---
+
+<Layout title={data.title}>
+  <div class="text-base">
+    <div class="mb-4 font-mono">
+      <a href="/posts" transition:name="posts" transition:animate="fade"
+        >← Back to
+        <span class="text-white">/posts</span>
+      </a>
+    </div>
+    <h1
+      transition:name={`title_${id}`}
+      class="md:text-3xl text-2xl text-white font-bold mb-4"
+    >
+      {data.title}
+    </h1>
+    <h1 class="mb-4">
+      Published at <span transition:name={`published_date_${id}`}
+        >{normalizeDate(data.pubDate.toISOString())}</span
+      >
+    </h1>
+    <div class="text-gray-300">
+      <slot />
+    </div>
+  </div>
+</Layout>

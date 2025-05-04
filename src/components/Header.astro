@@ -1,0 +1,39 @@
+---
+import { Icon } from "astro-icon";
+
+const svgClass = "stroke-white fill-white md:h-10 h-8";
+const currentPath = Astro.url.pathname;
+---
+
+<header class="wrapper md:flex md:flex-row flex-col md:justify-between">
+  <div class="flex gap-5 font-sans">
+    <a class="cursor-pointer" href="/">
+      <Icon name="rifqoi-logo2" class:list={svgClass} />
+    </a>
+    <div class="relative -top-3">
+      <p class="md:text-md text-base text-white">Muhammad Rifqi Al Furqon</p>
+      <p class="md:text-sm text-base text-gray-400">
+        (Software|Site Reliability) Engineer
+      </p>
+    </div>
+  </div>
+  <div
+    class="text-white flex justify-start pt-4 md:pt-0 md:justify-around gap-5 text-base font-mono"
+    id="nav-links"
+  >
+    <a
+      href="/posts"
+      target="_self"
+      class={`font-bold pb-1 border-gray-500 hover:text-white transition ease-in-out duration-700 relative cursor-pointer  ${
+        currentPath === "/posts" ? "text-white" : "text-gray-400"
+      } `}>/posts</a
+    >
+    <a
+      href="/projects"
+      target="_self"
+      class={`font-bold pb-1 border-gray-500 hover:text-white transition ease-in-out duration-700 relative cursor-pointer  ${
+        currentPath === "/projects" ? "text-white" : "text-gray-400"
+      } `}>/projects</a
+    >
+  </div>
+</header>

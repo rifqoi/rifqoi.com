@@ -1,0 +1,35 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import projects from "../content/projects.json";
+import Layout from "../layouts/Layout.astro";
+
+type Project = {
+  name: string;
+  description: string;
+  links?: string;
+};
+
+console.log(projects);
+
+const pageTitle = "Projects | rifqoi.com";
+---
+
+<Layout title={pageTitle}>
+  <h1 class="text-3xl text-white font-bold mb-6 mt-3">Projects</h1>
+
+  {
+    projects.length > 0 ? (
+      projects.map((project: Project) => (
+        <div class="flex my-4">
+          <ProjectCard
+            name={project.name}
+            description={project.description}
+            link={project.links}
+          />
+        </div>
+      ))
+    ) : (
+      <div class="flex mx-auto items-center justify-center">Coming Soon...</div>
+    )
+  }
+</Layout>

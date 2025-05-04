@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Precipalm - Tree Counting",
+    "description": "Collaborated with IPB University to develop an end-to-end tree counting and identification system for oil palm plantations. Led full-stack development—from YOLO-based ML modeling to deployment with FastAPI and Next.js. This project aimed to replace traditional fertilization estimation methods, potentially saving thousands of dollars in wasted resources annually."
+  },
+  {
+    "name": "Nongkee",
+    "description": "An app that helps users discover fun conversation topics during hangouts. Built the backend using Go with a focus on speed, simplicity, and scalability.",
+    "links": "https://nongkee.id"
+  }
+]
