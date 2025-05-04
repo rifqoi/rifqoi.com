@@ -3,6 +3,7 @@ import { Icon } from "astro-icon";
 
 const svgClass = "stroke-white fill-white md:h-10 h-8";
 const currentPath = Astro.url.pathname;
+console.log(currentPath);
 ---
 
 <header class="wrapper md:flex md:flex-row flex-col md:justify-between">
@@ -12,7 +13,7 @@ const currentPath = Astro.url.pathname;
     </a>
     <div class="relative -top-3">
       <p class="md:text-md text-base text-white">Muhammad Rifqi Al Furqon</p>
-      <p class="md:text-sm text-base text-gray-400">
+      <p class="md:text-sm sm:text-sm text-xs text-gray-400">
         (Software|Site Reliability) Engineer
       </p>
     </div>
