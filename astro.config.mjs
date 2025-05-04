@@ -7,16 +7,18 @@ import mdx from "@astrojs/mdx";
 
 import node from "@astrojs/node";
 
+import compressor from "astro-compressor";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), mdx()],
+  integrations: [react(), mdx(), compressor({gzip: true})],
 
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
       // https://shiki.style/themes
       // theme: "dracula",
-      // Alternatively, provide multiple themes
+    // Alternatively, provide multiple themes
       // https://shiki.style/guide/dual-themes
       themes: {
         light: "catppuccin-mocha",
