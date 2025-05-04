@@ -20,10 +20,7 @@ export default defineConfig({
       // theme: "dracula",
     // Alternatively, provide multiple themes
       // https://shiki.style/guide/dual-themes
-      themes: {
-        light: "catppuccin-mocha",
-        dark: "catppuccin-mocha",
-      },
+      theme:  "catppuccin-mocha" ,
       // Add custom languages
       // Note: Shiki has countless langs built-in, including .astro!
       // https://shiki.style/languages
