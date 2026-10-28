@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T17:58:35.143Z",
+  "title": "Design System: Rifqoi",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Soft White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#171717",
+          "#303030",
+          "#494949",
+          "#636363",
+          "#7d7d7d",
+          "#999999",
+          "#b9b9b9",
+          "#ffffff"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Near-Black Ink",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "#0a0a0a",
+          "#191919",
+          "#292929",
+          "#3b3b3b",
+          "#505050",
+          "#696969",
+          "#858585",
+          "#a5a5a5"
+        ]
+      },
+      "graphite-surface": {
+        "role": "neutral",
+        "displayName": "Cool Graphite",
+        "canonical": "#23262d",
+        "tonalRamp": [
+          "#111318",
+          "#22252c",
+          "#353840",
+          "#494c55",
+          "#60636c",
+          "#7a7d86",
+          "#a0a2aa",
+          "#e3e4e8"
+        ]
+      },
+      "neutral-copy": {
+        "role": "neutral",
+        "displayName": "Reading Gray",
+        "canonical": "var(--color-gray-300)",
+        "tonalRamp": [
+          "#17191c",
+          "#2c2f33",
+          "#45494e",
+          "#5f646a",
+          "#7b8087",
+          "#989ea6",
+          "#b8bec6",
+          "#d1d5db"
+        ]
+      },
+      "neutral-muted": {
+        "role": "neutral",
+        "displayName": "Muted Gray",
+        "canonical": "var(--color-gray-400)",
+        "tonalRamp": [
+          "#131518",
+          "#26292e",
+          "#3b3f45",
+          "#53575e",
+          "#6d7279",
+          "#898e96",
+          "#aab0b8",
+          "#d0d4da"
+        ]
+      },
+      "neutral-subtle": {
+        "role": "neutral",
+        "displayName": "Quiet Gray",
+        "canonical": "var(--color-gray-500)",
+        "tonalRamp": [
+          "#101114",
+          "#22252a",
+          "#363a40",
+          "#4c5057",
+          "#646971",
+          "#7f848c",
+          "#a1a6ae",
+          "#c9cdd3"
+        ]
+      },
+      "divider": {
+        "role": "neutral",
+        "displayName": "Divider Gray",
+        "canonical": "rgb(60,60,70)",
+        "tonalRamp": [
+          "#101014",
+          "#222229",
+          "#35353e",
+          "#4b4b55",
+          "#62626d",
+          "#7e7e89",
+          "#a0a0aa",
+          "#cacad1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project and secondary headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Profile, project, and article copy."
+      },
+      "label": {
+        "displayName": "Mono Label",
+        "purpose": "Navigation and article-heading cues."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "route-fade",
+        "value": "0.4s",
+        "purpose": "Subtle page-content transition."
+      },
+      {
+        "name": "link-color",
+        "value": "0.2s ease-in-out",
+        "purpose": "Short color transition for navigation and social links."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "48rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Text-only Projects and Posts links on non-home routes; the homepage uses its adjacent Start here links instead of repeating them.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"/projects\" aria-current=\"page\">Projects</a><a class=\"ds-nav-link\" href=\"/posts\">Posts</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 1.25rem; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 1rem; font-weight: 700; } .ds-nav-link { color: var(--color-gray-400); text-decoration: none; transition: color .2s ease-in-out; } .ds-nav-link:hover, .ds-nav-link-active { color: #fff; } .ds-nav-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }"
+    },
+    {
+      "name": "Project Summary",
+      "kind": "custom",
+      "refersTo": "project-summary",
+      "description": "An unboxed project name and description with an optional inline link.",
+      "html": "<article class=\"ds-project\"><h3 class=\"ds-project-title\">Project name</h3><p class=\"ds-project-copy\">Project description.</p><a class=\"ds-project-link\" href=\"#\">Project link</a></article>",
+      "css": ".ds-project { color: var(--color-gray-300); font-family: 'Nunito Variable', system-ui, sans-serif; font-size: 1rem; } .ds-project-title { margin: 0 0 .5rem; color: #fff; font-size: 1.25rem; font-weight: 700; } .ds-project-copy { margin: 0 0 .75rem; } .ds-project-link { color: var(--color-gray-300); } .ds-project-link:focus-visible { outline: auto; }"
+    },
+    {
+      "name": "Home Introduction",
+      "kind": "custom",
+      "description": "A personal introduction covering current interests, earlier data and machine-learning work, current SRE context, and the learning blog’s purpose.",
+      "html": "<section class=\"ds-home\"><div class=\"ds-home-copy\"><h1 class=\"ds-home-title\">I’m curious about why systems fail and how to keep them running.</h1><p>Lately, I’ve been exploring Kubernetes and Nix, alongside Linux and cloud-native systems.</p><p>I started out in data engineering and machine-learning research. These days, I work as a Senior Site Reliability Engineer at <a href=\"https://ioh.co.id/\"><img src=\"/ioh-mark.svg\" alt=\"\" />Indosat Ooredoo Hutchison</a>.</p><p>I use this site to keep track of what I’m learning and to practice writing in English.</p></div><aside class=\"ds-home-explore\"><h2>Start here</h2><nav aria-label=\"Explore the site\"><a href=\"/projects\"><strong>Projects</strong><span>Backend, web, and machine-learning projects, built solo and with collaborators.</span></a><a href=\"/posts\"><strong>Posts</strong><span>Notes on what I’m learning, written down before I forget.</span></a></nav></aside></section>",
+      "css": ".ds-home { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2.5rem; color: var(--color-gray-300); font-family: 'Nunito Variable', system-ui, sans-serif; } .ds-home-copy { display: flex; min-width: 0; max-width: 65ch; flex-direction: column; gap: 1.25rem; } .ds-home-title { margin: 0; color: #fff; font-size: 1.875rem; font-weight: 700; line-height: 1.2; } .ds-home-explore { border-left: 1px dashed rgb(60,60,70); padding-left: 1.5rem; } .ds-home-explore h2 { margin: 0 0 1rem; color: var(--color-gray-300); font-size: 1.25rem; font-weight: 700; } .ds-home-explore nav { display: grid; gap: 1.25rem; } .ds-home-explore nav a { display: flex; flex-direction: column; gap: .25rem; color: var(--color-gray-300); text-decoration: none; } .ds-home-explore nav strong { width: fit-content; border-bottom: 1px solid var(--color-gray-500); padding-bottom: .25rem; color: #fff; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 1rem; } .ds-home-explore nav span { color: var(--color-gray-400); font-size: .875rem; line-height: 1.6; } .ds-home a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; } @media (min-width: 768px) { .ds-home-title { font-size: 2.25rem; } } @media (max-width: 767px) { .ds-home { grid-template-columns: 1fr; gap: 2rem; } .ds-home-explore { border-top: 1px dashed rgb(60,60,70); border-left: 0; padding-top: 1.25rem; padding-left: 0; } }"
+    },
+    {
+      "name": "Post List Row",
+      "kind": "custom",
+      "description": "A date and post title arranged as a compact two-column link.",
+      "html": "<a class=\"ds-post-row\" href=\"#\"><time class=\"ds-post-date\">2025-05-04</time><span class=\"ds-post-title\">Post title</span></a>",
+      "css": ".ds-post-row { display: flex; gap: 0; color: inherit; font-family: 'Nunito Variable', system-ui, sans-serif; font-size: 1rem; text-decoration: none; margin: 1rem 0; } .ds-post-date { flex: 0 0 7rem; color: var(--color-gray-500); } .ds-post-title { color: inherit; } .ds-post-row:focus-visible { outline: auto; }"
+    },
+    {
+      "name": "Social Footer Links",
+      "kind": "nav",
+      "description": "Small text links separated from the page content by a dashed divider.",
+      "html": "<nav class=\"ds-footer-links\" aria-label=\"Social links\"><a href=\"https://github.com/rifqoi\">GitHub</a><a href=\"https://linkedin.com/in/rifqoi\">LinkedIn</a><a href=\"mailto:alfurqon.rifqi@gmail.com\">Email</a></nav>",
+      "css": ".ds-footer-links { display: flex; gap: .75rem; color: var(--color-gray-400); font-family: 'Nunito Variable', system-ui, sans-serif; font-weight: 700; } .ds-footer-links a { color: inherit; text-decoration: none; transition: color .2s ease-in-out; } .ds-footer-links a:hover { color: #fff; } .ds-footer-links a:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A compact engineer's field notebook",
+    "overview": "The site pairs a near-black reading canvas with clear white headings, gray body copy, and a restrained graphite note in one isolated card utility. Nunito Variable carries most text; IBM Plex Mono marks navigation and article headings. The mood is understated, technical, and approachable, with a personal voice.\n\nInternal pages use a narrow single column and let text carry the content. The homepage uses a compact two-column introduction on wider screens and stacks it on smaller screens, with Projects and Posts beside the introduction on wide screens. On internal routes, navigation sits beside the identity on wider screens and below it on smaller screens. The compact homepage places its footer directly after the content; other routes keep the footer at the viewport edge on short pages. Motion is limited to subtle route fades and link color changes.",
+    "keyCharacteristics": [
+      "Dark, neutral canvas with a white and gray text hierarchy.",
+      "Compact, text-led content with mono navigation cues.",
+      "Active pages stay flat and unboxed."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Face Rule",
+        "body": "Keep Nunito Variable for reading and identity text; reserve IBM Plex Mono for navigation and article-heading cues.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Page Rule",
+        "body": "Keep current page content on the canvas; do not promote the unused card utility into a default container pattern.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep content centered within the existing 700px maximum width.",
+      "Do use the neutral gray scale for secondary text and white for clear emphasis.",
+      "Do recommend straightforward implementations and preserve the site's simplicity.",
+      "Do keep project summaries unboxed in the active Projects layout."
+    ],
+    "donts": [
+      "Don't make raised shadows or filled cards the default page treatment; the active routes are flat.",
+      "Don't treat company or technology logo colors as part of the site's neutral palette."
+    ]
+  }
+}

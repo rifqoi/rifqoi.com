@@ -3,38 +3,57 @@ import { Icon } from "astro-icon";
 
 const svgClass = "stroke-white fill-white md:h-10 h-8";
 const currentPath = Astro.url.pathname;
-console.log(currentPath);
 ---
 
 <header class="wrapper md:flex md:flex-row flex-col md:justify-between">
   <div class="flex gap-5 font-sans">
-    <a class="cursor-pointer" href="/" aria-label="Home">
+    <a
+      class="cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+      href="/"
+      aria-label="Home"
+      aria-current={currentPath === "/" ? "page" : undefined}
+    >
       <Icon name="rifqoi-logo2" class:list={svgClass} />
     </a>
     <div class="relative -top-3">
       <p class="md:text-md text-base text-white">Muhammad Rifqi Al Furqon</p>
-      <p class="md:text-sm sm:text-sm text-xs text-gray-400">
-        (Software|Site Reliability) Engineer
-      </p>
+      {
+        currentPath !== "/" && (
+          <p class="md:text-sm sm:text-sm text-xs text-gray-400">
+            Senior Site Reliability Engineer
+          </p>
+        )
+      }
     </div>
   </div>
-  <div
-    class="text-white flex justify-start pt-4 md:pt-0 md:justify-around gap-5 text-base font-mono"
-    id="nav-links"
-  >
-    <a
-      href="/posts"
-      target="_self"
-      class={`font-bold pb-1 border-gray-500 hover:text-white transition ease-in-out duration-700 relative cursor-pointer  ${
-        currentPath === "/posts" ? "text-white" : "text-gray-400"
-      } `}>/posts</a
-    >
-    <a
-      href="/projects"
-      target="_self"
-      class={`font-bold pb-1 border-gray-500 hover:text-white transition ease-in-out duration-700 relative cursor-pointer  ${
-        currentPath === "/projects" ? "text-white" : "text-gray-400"
-      } `}>/projects</a
-    >
-  </div>
+  {
+    currentPath !== "/" && (
+      <nav
+        class="flex justify-start gap-5 pt-4 font-mono text-base text-white md:justify-around md:pt-0"
+        id="nav-links"
+        aria-label="Primary"
+      >
+        <a
+          href="/projects"
+          aria-current={currentPath === "/projects" ? "page" : undefined}
+          class:list={[
+            "relative cursor-pointer pb-1 font-bold transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
+            currentPath === "/projects" ? "text-white" : "text-gray-400",
+          ]}
+        >
+          Things I've built
+        </a>
+        <a
+          href="/posts"
+          aria-current={currentPath === "/posts" ? "page" : undefined}
+          class:list={[
+            "relative cursor-pointer pb-1 font-bold transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
+            currentPath === "/posts" ? "text-white" : "text-gray-400",
+          ]}
+        >
+          Notes
+        </a>
+      </nav>
+    )
+  }
 </header>

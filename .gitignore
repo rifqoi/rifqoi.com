@@ -17,5 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# local Impeccable review state
+.impeccable/config.local.json
+.impeccable/critique/
+
 # macOS-specific files
 .DS_Store
